@@ -1,11 +1,9 @@
-#include<bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
+#include <bits/stdc++.h>
 
 using namespace std;
 #define int long long
-using namespace __gnu_pbds;
-typedef tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update> pbds; // find_by_order= Element at ith position, order_of_key= No of Values less than X
+// using namespace __gnu_pbds;
+// typedef tree<int, null_type, less_equal<int>, rb_tree_tag, tree_order_statistics_node_update> pbds; // find_by_order= Element at ith position, order_of_key= No of Values less than X
 typedef long long ll;
 typedef vector<int> vi;
 typedef vector<ll> vl;
@@ -14,11 +12,14 @@ typedef vector<vector<int>> vvi;
 const int INF = 4e18;
 
 vi prime;
-void Sieve(int n) {
+void Sieve(int n)
+{
     prime.resize(n + 1, true);
 
-    for (int p = 2; p * p <= n; p++) {
-        if (prime[p] == true) {
+    for (int p = 2; p * p <= n; p++)
+    {
+        if (prime[p] == true)
+        {
             for (int i = p * p; i <= n; i += p)
                 prime[i] = false;
         }
@@ -31,6 +32,10 @@ bool isPalindrome(string &s)
     reverse(t.begin(), t.end());
     return t == s;
 }
+int multiplicationOfTwoNumber(int a, int b)
+{
+    return (a * b);
+}
 int ceil(int a, int b)
 {
     int x = a / b;
@@ -38,23 +43,30 @@ int ceil(int a, int b)
         return x + 1;
     return x;
 }
-int NoOfPrimeFactors(int n) {
+int NoOfPrimeFactors(int n)
+{
     int cnt = 0;
-    if (n % 2 == 0) {
+    if (n % 2 == 0)
+    {
         cnt++;
     }
-    while (n % 2 == 0) {
+    while (n % 2 == 0)
+    {
         n /= 2;
     }
-    for (int i = 3; i <= sqrt(n); i++) {
-        if (n % i == 0) {
+    for (int i = 3; i <= sqrt(n); i++)
+    {
+        if (n % i == 0)
+        {
             cnt++;
         }
-        while (n % i == 0) {
+        while (n % i == 0)
+        {
             n /= i;
         }
     }
-    if (n > 2) {
+    if (n > 2)
+    {
         cnt++;
     }
     return cnt;
@@ -78,7 +90,8 @@ ll modpow(ll x, ll n, int m = mod)
 
 int gcdExtended(int a, int b, int *x, int *y);
 
-int modInverse(int b, int m) {
+int modInverse(int b, int m)
+{
     int x, y;
     int g = gcdExtended(b, m, &x, &y);
     if (g != 1)
@@ -86,14 +99,17 @@ int modInverse(int b, int m) {
     return (x % m + m) % m;
 }
 
-int modDivide(int a, int b, int m = mod) {
+int modDivide(int a, int b, int m = mod)
+{
     a = a % m;
     int inv = modInverse(b, m);
     return (inv * a) % m;
 }
 
-int gcdExtended(int a, int b, int *x, int *y) {
-    if (a == 0) {
+int gcdExtended(int a, int b, int *x, int *y)
+{
+    if (a == 0)
+    {
         *x = 0, *y = 1;
         return b;
     }
@@ -106,10 +122,10 @@ int gcdExtended(int a, int b, int *x, int *y) {
 
 void solve()
 {
-
 }
 
-int32_t main() {
+int32_t main()
+{
 #ifndef ONLINE_JUDGE
     freopen("in.txt", "r", stdin);
     freopen("out.txt", "w", stdout);
@@ -118,7 +134,7 @@ int32_t main() {
     cin.tie(NULL);
 
     int t = 1;
-// cin >> t;
+    // cin >> t;
     int i = 1;
     while (t--)
     {
