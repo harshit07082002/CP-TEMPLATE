@@ -1,0 +1,23 @@
+#include <stdio.h>
+int divisible(long long int n) {
+   long long int temp = n;
+   // check if any of digit divides n
+   while (n) {
+      int k = n % 10;
+      if (temp % k == 0)
+         return 1;
+         n /= 10;
+   }
+   return 0;
+}
+int main() {
+   long long int n = 654123;
+   if (divisible(n)) {
+      printf("Yes
+");
+   }
+   else
+      printf("No
+");
+   return 0;
+}
